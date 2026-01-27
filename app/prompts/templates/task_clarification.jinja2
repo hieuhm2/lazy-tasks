@@ -1,0 +1,34 @@
+{# Template for task clarification questions #}
+{# Used by Refiner Agent when task details are missing #}
+
+{% if missing_fields %}
+Task này thiếu vài detail. Anh confirm giúp:
+{% for field in missing_fields %}
+{% if field == 'deadline' %}
+• Deadline khi nào?{% if default_deadline %} (Mặc định: {{ default_deadline }}){% endif %}
+
+{% elif field == 'project' %}
+• Task thuộc project nào?{% if available_projects %} ({{ available_projects | join(', ') }}){% endif %}
+
+{% elif field == 'priority' %}
+• Priority level? (P1 - urgent, P2 - high, P3 - normal, P4 - low, P5 - backlog)
+{% elif field == 'output' %}
+• Output format là gì? (slide, doc, email, code, ...)
+{% elif field == 'context' %}
+• Cần thêm context gì về task này?
+{% endif %}
+{% endfor %}
+{% else %}
+✅ Task info đầy đủ. Confirm để tôi save:
+
+• **Content:** {{ task_content }}
+{% if deadline %}• **Deadline:** {{ deadline }}{% endif %}
+
+{% if priority %}• **Priority:** P{{ priority }}{% endif %}
+
+{% if project %}• **Project:** {{ project }}{% endif %}
+
+{% if tags %}• **Tags:** {{ tags | join(', ') }}{% endif %}
+
+Tôi có thể set reminder trước deadline không?
+{% endif %}

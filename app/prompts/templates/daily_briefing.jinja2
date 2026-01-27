@@ -1,0 +1,36 @@
+{# Template for daily briefing message #}
+{# Sent at startup or scheduled time #}
+
+👋 **Chào buổi sáng!**
+
+{% if focus_tasks %}
+**Tiêu điểm hôm nay:**
+{% for task in focus_tasks[:5] %}
+{{ loop.index }}. {% if task.priority == 1 %}🔴{% elif task.priority == 2 %}🟡{% else %}⚪{% endif %} [P{{ task.priority }}] {{ task.content }}{% if task.deadline %} — Deadline: {{ task.deadline | format_time }}{% endif %}
+
+{% endfor %}
+{% else %}
+**Hôm nay trống lịch.** Có task nào mới không anh?
+{% endif %}
+
+{% if calendar_events %}
+📅 **Lịch họp:**
+{% for event in calendar_events[:3] %}
+• {{ event.start_time | format_time }} - {{ event.title }}{% if event.duration %} ({{ event.duration }}){% endif %}
+
+{% endfor %}
+{% endif %}
+
+{% if overdue_tasks %}
+⚠️ **Overdue:**
+{% for task in overdue_tasks[:3] %}
+• "{{ task.content | truncate(50) }}" — overdue {{ task.days_overdue }} ngày
+{% endfor %}
+{% if overdue_tasks | length > 3 %}
+... và {{ overdue_tasks | length - 3 }} task khác. Reschedule không anh?
+{% endif %}
+{% endif %}
+
+{% if insights %}
+💡 *{{ insights }}*
+{% endif %}
