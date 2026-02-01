@@ -1,6 +1,6 @@
 # PROJECT CONTEXT MAP
 
-> **Purpose:** This document acts as a "Knowledge Graph" for the PAEA project, linking features to technical components. Use this as a quick reference to understand system relationships and maintain context across long development sessions.
+> **Purpose:** This document acts as a "Knowledge Graph" for the Lazy Tasks project, linking features to technical components. Use this as a quick reference to understand system relationships and maintain context across long development sessions.
 
 ---
 
@@ -8,7 +8,7 @@
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│  PAEA - Personal AI Executive Assistant                          │
+│  Lazy Tasks - Personal AI Executive Assistant                          │
 ├──────────────────────────────────────────────────────────────────┤
 │  Type:     Local-first Agentic AI Assistant                      │
 │  User:     Vietnamese Software Engineer (AI/DL Researcher)       │
@@ -96,7 +96,7 @@ COMPONENTS INVOLVED:
 COMPONENTS INVOLVED:
 ├── Agents:       scanner.yaml
 ├── DB Tables:    chat_logs, documents
-├── Vector DB:    Qdrant (paea_memory collection)
+├── Vector DB:    Qdrant (lazy_tasks_memory collection)
 ├── Search:       Elasticsearch (chat logs index)
 ├── Services:     retrieval_service.py, llm_service.py
 └── Embedding:    OpenAI text-embedding-3-small (1536 dims)
@@ -162,7 +162,7 @@ COMPONENTS INVOLVED:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                          PAEA DATA FLOW                                 │
+│                          LAZY TASKS DATA FLOW                                 │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
 │   TELEGRAM                         FASTAPI                              │
@@ -326,7 +326,7 @@ STATE DEFINITION (TypedDict):
 ## 6. FILE STRUCTURE REFERENCE
 
 ```
-paea/
+lazy-tasks/
 ├── docs/                           # ◀── YOU ARE HERE
 │   ├── PROJECT_SPECS.md            # Business requirements
 │   ├── TECHNICAL_ARCHITECTURE.md   # Technical design

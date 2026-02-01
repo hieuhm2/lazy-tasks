@@ -1,4 +1,4 @@
-# PAEA - Personal AI Executive Assistant
+# Lazy Tasks - Personal AI Executive Assistant
 
 Local-first AI assistant for task management via Telegram. Built with LangGraph + FastAPI + PostgreSQL + Qdrant.
 
@@ -10,7 +10,7 @@ Local-first AI assistant for task management via Telegram. Built with LangGraph 
 ```bash
 # Create conda environment
 conda env create -f environment.yml
-conda activate paea
+conda activate lazy-tasks
 ```
 
 **Option B: Using pip**
@@ -82,7 +82,7 @@ ngrok http 8000
 ## Project Structure
 
 ```
-paea/
+lazy-tasks/
 ├── app/
 │   ├── api/routes/         # FastAPI endpoints
 │   ├── core/               # Config, database

@@ -1,5 +1,5 @@
 [project]
-name = "paea"
+name = "lazy-tasks"
 version = "0.1.0"
 description = "Personal AI Executive Assistant - Local-first AI assistant for task management via Telegram"
 readme = "README.md"

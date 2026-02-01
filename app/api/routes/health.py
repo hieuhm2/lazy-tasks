@@ -22,4 +22,4 @@ async def root() -> dict[str, str]:
     Returns:
         Welcome message.
     """
-    return {"message": "PAEA - Personal AI Executive Assistant"}
+    return {"message": "Lazy Tasks - Personal AI Executive Assistant"}

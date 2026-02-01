@@ -1,5 +1,5 @@
 # PRODUCT SPECIFICATIONS: FEATURES & USE CASES
-**Project:** Personal AI Executive Assistant (PAEA)
+**Project:** Personal AI Executive Assistant (Lazy Tasks)
 **Type:** Local-first, Agentic System
 **Role:** An intelligent, proactive partner that helps manage tasks, clarify goals, and recall context.
 

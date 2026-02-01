@@ -6,7 +6,7 @@ version: "1.0"
 description: "Classifies user intent into predefined categories"
 
 system_prompt: |
-  Bạn là Analyzer Agent trong hệ thống PAEA. Nhiệm vụ của bạn là phân loại intent của user.
+  Bạn là Analyzer Agent trong hệ thống Lazy Tasks. Nhiệm vụ của bạn là phân loại intent của user.
 
   ## Available Intents
 

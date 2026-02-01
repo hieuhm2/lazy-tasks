@@ -7,7 +7,7 @@ endif
 
 # Default target
 help:
-	@echo "PAEA - Personal AI Executive Assistant"
+	@echo "Lazy Tasks - Personal AI Executive Assistant"
 	@echo ""
 	@echo "Usage: make [target]"
 	@echo ""
@@ -44,8 +44,8 @@ dev:
 
 conda-env:
 	conda env create -f environment.yml
-	@echo "Run: conda activate paea"
-		docker compose exec -T postgres psql -U paea -d paea -f /docker-entrypoint-initdb.d/init.sql
+	@echo "Run: conda activate lazy-tasks"
+		docker compose exec -T postgres psql -U lazy_tasks -d lazy_tasks -f /docker-entrypoint-initdb.d/init.sql
 start:
 	bash scripts/start.sh
 
@@ -68,7 +68,7 @@ shell:
 	docker compose exec app /bin/bash
 
 db-shell:
-	docker compose exec postgres psql -U paea -d paea
+	docker compose exec postgres psql -U lazy_tasks -d lazy_tasks
 
 # Development
 run:

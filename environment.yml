@@ -1,4 +1,4 @@
-name: paea
+name: lazy-tasks
 channels:
   - conda-forge
   - defaults

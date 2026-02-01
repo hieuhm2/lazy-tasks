@@ -1,1 +1,1 @@
-"""PAEA - Personal AI Executive Assistant."""
+"""Lazy Tasks - Personal AI Executive Assistant."""

@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     telegram_webhook_secret: str = ""
 
     # Database
-    postgres_url: str = "postgresql+asyncpg://paea:paea_secret@localhost:5432/paea"
+    postgres_url: str = "postgresql+asyncpg://lazy_tasks:lazy_tasks_secret@localhost:5432/lazy_tasks"
 
     # Vector DB
     qdrant_url: str = "http://localhost:6333"
@@ -37,7 +37,7 @@ class Settings(BaseSettings):
 
     # Optional: LangSmith
     langchain_tracing_v2: bool = False
-    langchain_project: str = "paea"
+    langchain_project: str = "lazy-tasks"
     langsmith_api_key: str = ""
 
     @property

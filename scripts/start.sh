@@ -1,5 +1,5 @@
 #!/bin/bash
-# Start PAEA: docker services + ngrok + auto-set Telegram webhook
+# Start Lazy Tasks: docker services + ngrok + auto-set Telegram webhook
 
 set -e
 
@@ -9,7 +9,7 @@ if [ -f .env ]; then
 fi
 
 echo "🚀 Starting Docker services..."
-docker compose -f ~/PAEA/docker-compose.yml up -d 
+docker compose -f ~/lazy-tasks/docker-compose.yml up -d
 
 echo "⏳ Waiting for app to be ready..."
 until curl -s http://localhost:8000/health > /dev/null 2>&1; do
@@ -58,7 +58,7 @@ else:
 "
 
 echo ""
-echo "🎉 PAEA is running!"
+echo "🎉 Lazy Tasks is running!"
 echo "   App:     http://localhost:8000"
 echo "   Ngrok:   $NGROK_URL"
 echo "   Logs:    make logs-app"

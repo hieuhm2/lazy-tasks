@@ -1,4 +1,4 @@
-# PAEA - Personal AI Executive Assistant
+# Lazy Tasks - Personal AI Executive Assistant
 
 > **Quick Summary:** Local-first AI assistant for task management via Telegram. Built with LangGraph + FastAPI + PostgreSQL + Qdrant.
 >
@@ -79,7 +79,7 @@ Read the appropriate file based on your current task:
 ## PROJECT STRUCTURE
 
 ```
-paea/
+lazy-tasks/
 ├── CLAUDE.md                    # ◀── You are here
 ├── docs/                        # Documentation
 │   ├── PROJECT_SPECS.md         # Business logic
@@ -146,7 +146,7 @@ Required in `.env`:
 OPENAI_API_KEY=sk-...
 TELEGRAM_BOT_TOKEN=123456:ABC...
 TELEGRAM_WEBHOOK_SECRET=random-32-char-string
-POSTGRES_URL=postgresql://user:pass@localhost:5432/paea
+POSTGRES_URL=postgresql://user:pass@localhost:5432/lazy_tasks
 QDRANT_URL=http://localhost:6333
 ELASTICSEARCH_URL=http://localhost:9200
 ```

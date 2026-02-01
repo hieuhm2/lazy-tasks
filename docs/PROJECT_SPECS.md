@@ -1,7 +1,7 @@
-# PROJECT SPECIFICATIONS: Personal AI Executive Assistant (PAEA)
+# PROJECT SPECIFICATIONS: Personal AI Executive Assistant (Lazy Tasks)
 
 ## 1. Overview
-PAEA is a local-first, agentic AI assistant designed to manage personal tasks, goals, and schedules via a Telegram interface. It moves beyond simple command-response by proactively clarifying vague tasks, scanning past data for context, and reflecting on user progress.
+Lazy Tasks is a local-first, agentic AI assistant designed to manage personal tasks, goals, and schedules via a Telegram interface. It moves beyond simple command-response by proactively clarifying vague tasks, scanning past data for context, and reflecting on user progress.
 
 ## 2. Core Behavior (The Agent Loop)
 The system is built on **LangGraph** with the following cyclic workflow:

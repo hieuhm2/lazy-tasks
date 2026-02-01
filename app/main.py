@@ -1,4 +1,4 @@
-"""PAEA - Personal AI Executive Assistant main application."""
+"""Lazy Tasks - Personal AI Executive Assistant main application."""
 
 import logging
 from contextlib import asynccontextmanager
@@ -25,7 +25,7 @@ settings = get_settings()
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     """Application lifespan handler for startup and shutdown events."""
     # Startup
-    logger.info("Starting PAEA application...")
+    logger.info("Starting Lazy Tasks application...")
     logger.info(f"Environment: {settings.app_env}")
 
     # Import all models so Base.metadata knows about them
@@ -45,12 +45,12 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     yield
 
     # Shutdown
-    logger.info("Shutting down PAEA application...")
+    logger.info("Shutting down Lazy Tasks application...")
 
 
 # Create FastAPI application
 app = FastAPI(
-    title="PAEA",
+    title="Lazy Tasks",
     description="Personal AI Executive Assistant - Local-first AI assistant for task management via Telegram",
     version="0.1.0",
     lifespan=lifespan,

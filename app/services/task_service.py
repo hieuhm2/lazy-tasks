@@ -4,7 +4,7 @@ import logging
 from datetime import datetime
 from typing import Any
 
-from sqlalchemy import select, or_
+from sqlalchemy import func, select, or_
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.task import Task
@@ -112,6 +112,19 @@ class TaskService:
         )
         result = await self.db.execute(stmt)
         return list(result.scalars().all())
+
+    async def count_tasks_by_status(self) -> dict[str, int]:
+        """Count tasks grouped by status.
+
+        Returns:
+            Dict mapping status to count, e.g. {"todo": 3, "in_progress": 2}.
+        """
+        stmt = (
+            select(Task.status, func.count(Task.id))
+            .group_by(Task.status)
+        )
+        result = await self.db.execute(stmt)
+        return dict(result.all())
 
     async def update_task(self, task_id: int, **fields: Any) -> Task | None:
         """Update a task's fields.

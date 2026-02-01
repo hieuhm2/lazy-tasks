@@ -1,4 +1,4 @@
--- PAEA Database Initialization Script
+-- Lazy Tasks Database Initialization Script
 -- All tables use incremental BIGINT IDs starting from 1,000,000
 
 -- Create sequences starting from 1000000

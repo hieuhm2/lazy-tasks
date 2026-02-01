@@ -38,7 +38,7 @@ services:
 | `OPENAI_API_KEY` | LLM API Key | `sk-...` |
 | `TELEGRAM_BOT_TOKEN` | Bot token from @BotFather | `123456:ABC...` |
 | `TELEGRAM_WEBHOOK_SECRET` | Secret token for webhook validation | `random-string-32-chars` |
-| `POSTGRES_URL` | Database connection string | `postgresql://user:pass@host:5432/paea` |
+| `POSTGRES_URL` | Database connection string | `postgresql://user:pass@host:5432/lazy_tasks` |
 | `QDRANT_URL` | Qdrant endpoint | `http://qdrant:6333` |
 | `ELASTICSEARCH_URL` | ES endpoint | `http://elasticsearch:9200` |
 | `LANGSMITH_API_KEY` | (Optional) For tracing | `ls-...` |
@@ -227,9 +227,9 @@ scheduler.start()
 For "laptop opens" trigger, use a systemd user service or a simple cron `@reboot`:
 
 ```bash
-# ~/.config/systemd/user/paea-startup.service
+# ~/.config/systemd/user/lazy-tasks-startup.service
 [Unit]
-Description=PAEA Startup Trigger
+Description=Lazy Tasks Startup Trigger
 
 [Service]
 ExecStart=/usr/bin/curl -X POST http://localhost:8000/api/trigger/startup
@@ -277,7 +277,7 @@ async def call_llm(prompt: str) -> str:
 ```python
 import os
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_PROJECT"] = "paea-production"
+os.environ["LANGCHAIN_PROJECT"] = "lazy-tasks-production"
 ```
 
 ---
@@ -294,7 +294,7 @@ client = QdrantClient(url=settings.QDRANT_URL)
 
 # Create collection for chat/document embeddings
 client.create_collection(
-    collection_name="paea_memory",
+    collection_name="lazy_tasks_memory",
     vectors_config=VectorParams(
         size=1536,  # text-embedding-3-small
         distance=Distance.COSINE
@@ -319,7 +319,7 @@ client.create_collection(
 ## 9. Directory Structure (Reference)
 
 ```text
-paea/
+lazy-tasks/
 ├── app/
 │   ├── api/
 │   │   ├── routes/
