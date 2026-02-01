@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes import health, telegram
 from app.core.config import get_settings
+from app.core.database import Base, engine
 
 # Configure logging
 logging.basicConfig(
@@ -26,6 +27,15 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     # Startup
     logger.info("Starting PAEA application...")
     logger.info(f"Environment: {settings.app_env}")
+
+    # Import all models so Base.metadata knows about them
+    import app.models.chat  # noqa: F401
+    import app.models.task  # noqa: F401
+
+    # Create tables if they don't exist
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+    logger.info("Database tables ensured")
 
     # TODO: Initialize services here
     # - Qdrant collection

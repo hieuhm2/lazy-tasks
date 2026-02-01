@@ -6,7 +6,13 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.database import AsyncSessionLocal
 from app.services.chat_service import ChatService
+from app.services.llm_service import LLMService
+from app.services.prompt_manager import PromptManager
 from app.services.telegram_service import TelegramService
+
+# Module-level singletons for stateless services
+_prompt_manager = PromptManager()
+_llm_service = LLMService()
 
 
 async def get_db() -> AsyncGenerator[AsyncSession, None]:
@@ -45,3 +51,21 @@ def get_telegram_service() -> TelegramService:
         TelegramService instance.
     """
     return TelegramService()
+
+
+def get_prompt_manager() -> PromptManager:
+    """Get PromptManager singleton.
+
+    Returns:
+        PromptManager instance.
+    """
+    return _prompt_manager
+
+
+def get_llm_service() -> LLMService:
+    """Get LLMService singleton.
+
+    Returns:
+        LLMService instance.
+    """
+    return _llm_service

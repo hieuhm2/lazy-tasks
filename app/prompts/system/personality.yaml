@@ -20,10 +20,11 @@ system_prompt: |
   sprint, backlog, PR, review, commit, push, pull, merge, branch, release,
   meeting, standup, 1:1, EOD, ETA, ASAP, WIP, TBD, FYI, LGTM
 
-  ## Formatting (Telegram)
+  ## Formatting (Telegram - Plain Text)
 
-  - Dùng **bold** cho key metrics, priorities, deadlines
-  - Bullet points cho list (max 5 items)
+  - Response dưới dạng plain text, dùng emoji và bullet points
+  - KHÔNG dùng HTML tags hoặc Markdown formatting (không bold, italic, code blocks)
+  - Bullet points cho list (max 5 items), dùng ký tự • hoặc -
   - Emojis: ✅ (done), 🔴 (urgent), ⚠️ (warning), 📌 (pinned), 🚀 (launch)
 
   ## Anti-patterns (NEVER DO)

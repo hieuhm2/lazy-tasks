@@ -1,5 +1,10 @@
 .PHONY: help install dev up down logs shell db-shell test lint format
 
+ifneq (,$(wildcard .env))
+    include .env
+    export
+endif
+
 # Default target
 help:
 	@echo "PAEA - Personal AI Executive Assistant"
@@ -40,28 +45,27 @@ dev:
 conda-env:
 	conda env create -f environment.yml
 	@echo "Run: conda activate paea"
-
+		docker compose exec -T postgres psql -U paea -d paea -f /docker-entrypoint-initdb.d/init.sql
 # Docker commands
 up:
-	docker-compose up -d
+	docker compose up -d
 
 up-build:
-	docker-compose up -d --build
+	docker compose up -d --build
 
 down:
-	docker-compose down
+	docker compose down
 
 logs:
-	docker-compose logs -f
+	docker compose logs -f
 
 logs-app:
-	docker-compose logs -f app
-
+	docker compose logs -f app
 shell:
-	docker-compose exec app /bin/bash
+	docker compose exec app /bin/bash
 
 db-shell:
-	docker-compose exec postgres psql -U paea -d paea
+	docker compose exec postgres psql -U paea -d paea
 
 # Development
 run:
@@ -81,15 +85,17 @@ typecheck:
 	mypy app/
 
 # Database
+PYTHON ?= python3
+
 db-migrate:
-	alembic upgrade head
+	$(PYTHON) -m alembic upgrade head
 
 db-reset:
-	docker-compose down -v
-	docker-compose up -d postgres
+	docker compose down -v
+	docker compose up -d postgres
 	@echo "Waiting for PostgreSQL..."
 	sleep 5
-	docker-compose up -d
+	docker compose up -d
 
 # Telegram webhook
 webhook-set:

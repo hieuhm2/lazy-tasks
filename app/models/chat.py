@@ -46,7 +46,8 @@ class ChatLog(Base):
         Float,
         nullable=True,
     )  # -1.0 to 1.0
-    metadata: Mapped[dict[str, Any] | None] = mapped_column(
+    extra_metadata: Mapped[dict[str, Any] | None] = mapped_column(
+        "metadata",
         JSONB,
         nullable=True,
     )

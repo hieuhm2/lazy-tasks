@@ -29,7 +29,7 @@ class TelegramService:
         self,
         chat_id: int,
         text: str,
-        parse_mode: str = "HTML",
+        parse_mode: str | None = None,
         reply_markup: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
         """Send a message to a Telegram chat.
@@ -46,8 +46,9 @@ class TelegramService:
         payload: dict[str, Any] = {
             "chat_id": chat_id,
             "text": text,
-            "parse_mode": parse_mode,
         }
+        if parse_mode:
+            payload["parse_mode"] = parse_mode
         if reply_markup:
             payload["reply_markup"] = reply_markup
 
