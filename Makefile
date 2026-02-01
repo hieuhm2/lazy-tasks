@@ -46,6 +46,9 @@ conda-env:
 	conda env create -f environment.yml
 	@echo "Run: conda activate paea"
 		docker compose exec -T postgres psql -U paea -d paea -f /docker-entrypoint-initdb.d/init.sql
+start:
+	bash scripts/start.sh
+
 # Docker commands
 up:
 	docker compose up -d
